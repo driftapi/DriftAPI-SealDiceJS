@@ -1,7 +1,6 @@
 # DriftAPI-SealDiceJS
 
 ## 食用
-[[toc]]
 ***
 ### 1.申请白名单<Badge type="warning" text="并不是必须" />
 如果不申请白名单, 你将只能享受到本插件的查询漂流瓶数量和漂流瓶捞取功能, <font color="#ff4d40"><u>_上传漂流瓶的大门不会向你开放_</u></font>
@@ -34,8 +33,8 @@ const botId = 114514
 
 但是请不要修改插件作者名后分享, 甚至售卖此插件<Badge type="danger" text="此行为将被DriftAPI永久拉黑" />
 
-我将这个插件在[自己的github](https://github.com/lxy071130/sealdice-ext-driftbottle)上开源。欢迎可以改进此插件的大佬不吝赐建。 
+我将这个插件在[github](https://github.com/driftapi/DriftAPI-SealDiceJS/)上开源。欢迎可以改进此插件的大佬不吝赐建。 
 :::
 :::danger  声明:
-**此插件 <font color="#22c32e">永久免费</font>**  **如果你看到了任何贩卖或牟利行为，请务必向 我(流溪)(<u>1697252962</u>) 举报，或者加入群 骰子屋(<u>347679389</u>) 进行举报。**
+**此插件 <font color="#22c32e">永久免费</font>**  **如果你看到了任何贩卖或牟利行为，请务必向 我(流溪)(<u>1697252962</u>) 举报，或者加入QQ群 骰子屋(<u>347679389</u>) 进行举报。**
 :::
