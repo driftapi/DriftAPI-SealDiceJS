@@ -7,7 +7,7 @@
 // @license      Apache-2
 // @homepageURL  https://github.com/lxy071130
 // ==/UserScript==
-const botId = 114514; //这里把114514替换为你自己的botId，请务必加群申请，否则无法进行任何行为！
+const botId = 114514; //这里把114514替换为你自己的botId，请务必加群申请，否则无法扔漂流瓶！
 if(!seal.ext.find('漂流瓶')){
     ext = seal.ext.new('漂流瓶','流溪','0.0.6');
     seal.ext.register(ext);
