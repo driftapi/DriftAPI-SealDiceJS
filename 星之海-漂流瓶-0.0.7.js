@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         漂流瓶（星之海API版）
 // @author       流溪
-// @version      0.0.7
+// @version      0.0.6-fix
 // @description  请务必看文档！使用.星之海导游手册可以获取帮助。目前星之海还很不完善，如在扔出emoji时会报错，请避免它。
 // @timestamp    1676100198
 // @license      Apache-2
@@ -9,7 +9,7 @@
 // ==/UserScript==
 const botId = 114514; //这里把114514替换为你自己的botId，请务必加群申请，否则无法进行任何行为！
 if(!seal.ext.find('漂流瓶')){
-    ext = seal.ext.new('漂流瓶','流溪','0.0.7');
+    ext = seal.ext.new('漂流瓶','流溪','0.0.6');
     seal.ext.register(ext);
 }
 const cmdGetBottle = seal.ext.newCmdItemInfo();
@@ -98,7 +98,7 @@ cmdThrowBottle.solve = (ctx, msg, cmdArgs) => {
             }
             switch (cmdArgs.args.length){
                 case 0: {
-                    seal.replyToSender(ctx, msg, `你尝试向星之海中丢一个空空的瓶子，但是瓶子被送了回来。`);
+                    seal.replyToSender(ctx, msg, `"${userName}"尝试向星之海中丢一个空空的瓶子，但是瓶子被送了回来。`);
                     break;
                 }
                 default: {
@@ -121,7 +121,7 @@ cmdThrowBottle.solve = (ctx, msg, cmdArgs) => {
                             let back_msgs = JSON.parse(data);
                             switch (back_msgs.back_msg){
                                 case "成功上传!": {
-                                    seal.replyToSender(ctx, msg, `你向浮动的星之海中丢了一个瓶子。`)
+                                    seal.replyToSender(ctx, msg, `"${userName}"向浮动的星之海中丢了一个瓶子。`)
                                     break;
                                 }
                                 default: {
@@ -140,6 +140,7 @@ cmdThrowBottle.solve = (ctx, msg, cmdArgs) => {
 const cmdGetBottleAmount = seal.ext.newCmdItemInfo();
 cmdGetBottleAmount.name = '查询瓶子数量';
 cmdGetBottleAmount.solve = (ctx, msg, cmdArgs) => {
+    let userName = msg.sender.nickname
     url = 'https://cdn.api.dicex.cn/drift_bottle/starry_sea/drift/count'
     fetch(url, {
         headers: {
@@ -156,7 +157,7 @@ cmdGetBottleAmount.solve = (ctx, msg, cmdArgs) => {
         .then((data) => {
             let drift_count = JSON.parse(data);
             let bottleAmount = drift_count.drift_bottle_count;
-            seal.replyToSender(ctx, msg, `你看到星之海中有${bottleAmount}颗星辰在闪耀。`)
+            seal.replyToSender(ctx, msg, `"${userName}"看到星之海中有${bottleAmount}颗星辰在闪耀。`)
         })
         .catch((error) => {
             seal.replyToSender(ctx, msg, `执行发生如下错误：\n${error}`);
@@ -207,7 +208,7 @@ cmdSuicide.solve = (ctx, msg, cmdArgs) => {
             let strUserId = msg.sender.userId;
             let rawUserId = Number(strUserId.replace(/[abcdefghijklmnopqrstuvwxyz]/ig,"").replace(":",""));
             let userName = msg.sender.nickname;
-            let bottleMsg = `一份由`+userName+`的骨灰组成的信纸……看上去又有哪个不长眼的踏入星之海了啊。`;
+            let bottleMsg = `一份由"`+userName+`"的骨灰组成的信纸……看上去又有哪个不长眼的踏入星之海了啊。`;
             let groupId = msg.groupId
             let rawGroupId = Number(groupId.replace("QQ-Group:",""))
             to_send_msgs = {
@@ -246,7 +247,7 @@ cmdSuicide.solve = (ctx, msg, cmdArgs) => {
                     let back_msgs = JSON.parse(data);
                     switch (back_msgs.back_msg){
                         case "成功上传!": {
-                            seal.replyToSender(ctx, msg, `${userName}跨入了星之海。看起来他被那里的知识所震撼且暂时回不来了……`)
+                            seal.replyToSender(ctx, msg, `"${userName}"跨入了星之海。看起来他被那里的知识所震撼且暂时回不来了……`)
                             break;
                         }
                         default: {
@@ -292,11 +293,11 @@ cmdThrowBottleTo.solve = (ctx, msg, cmdArgs) => {
             }
             switch (cmdArgs.args.length) {
                 case 1: {
-                    seal.replyToSender(ctx, msg, `你尝试向星之海中丢一个空空的瓶子，但是瓶子被送了回来。`);
+                    seal.replyToSender(ctx, msg, `"${userName}"尝试向星之海中丢一个空空的瓶子，但是瓶子被送了回来。`);
                     break;
                 }
                 case 0: {
-                    seal.replyToSender(ctx, msg, `你尝试向星之海中丢一个空空的瓶子，但是瓶子被送了回来。`);
+                    seal.replyToSender(ctx, msg, `"${userName}"尝试向星之海中丢一个空空的瓶子，但是瓶子被送了回来。`);
                     break;
                 }
                 default: {
@@ -320,14 +321,13 @@ cmdThrowBottleTo.solve = (ctx, msg, cmdArgs) => {
                                         return response.text();
                                     } else {
                                         seal.replyToSender(ctx, msg, "发送漂流瓶失败。这大概率是因为配置错误的botId。");
-                                    }
-                                    ;
+                                    };
                                 })
                                 .then((data) => {
                                     let back_msgs = JSON.parse(data);
                                     switch (back_msgs.back_msg) {
                                         case "成功上传!": {
-                                            seal.replyToSender(ctx, msg, `你向浮动的星之海中丢了一个瓶子。`)
+                                            seal.replyToSender(ctx, msg, `"${userName}"向浮动的星之海中丢了一个瓶子，上面写着一串神秘的编号：${targetUserId}。`)
                                             break;
                                         }
                                         default: {
