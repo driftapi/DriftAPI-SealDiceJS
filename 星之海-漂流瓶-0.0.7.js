@@ -174,7 +174,7 @@ cmdHelp.solve = (ctx, msg, cmdArgs) =>{
         default: {
             switch (cmdArgs.getArgN(1)){
                 case '使用方法': {
-                    seal.replyToSender(ctx, msg, `星之海的使用方法：\n.扔漂流瓶 内容 //扔出一个漂流瓶\n.捡漂流瓶        //捡起一个漂流瓶\n.查询瓶子数量  //查看现有漂流瓶数量\n.扔漂流瓶给 qq号 内容 //扔瓶子给特定的人\n目前星之海还很不完善，如在扔出emoji时会报错，请避免它。\n更多功能制作中……`)
+                    seal.replyToSender(ctx, msg, `星之海的使用方法：\n.扔漂流瓶 内容 //扔出一个漂流瓶\n.捡漂流瓶        //捡起一个漂流瓶\n.查询瓶子数量  //查看现有漂流瓶数量\n.扔漂流瓶给 qq号 内容 //扔瓶子给特定的人\n.跨入星之海 //自杀行为……\n目前星之海还很不完善，如在扔出emoji时会报错，请避免它。\n更多功能制作中……`)
                     break;
                 }
                 case '协约': {
