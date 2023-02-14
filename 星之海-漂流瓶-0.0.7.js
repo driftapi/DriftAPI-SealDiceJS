@@ -1,15 +1,15 @@
 // ==UserScript==
 // @name         漂流瓶（星之海API版）
 // @author       流溪
-// @version      0.0.6-fix
+// @version      0.0.7
 // @description  请务必看文档！使用.星之海导游手册可以获取帮助。目前星之海还很不完善，如在扔出emoji时会报错，请避免它。
 // @timestamp    1676100198
 // @license      Apache-2
 // @homepageURL  https://github.com/lxy071130
 // ==/UserScript==
-const botId = 640327612; //这里把114514替换为你自己的botId，请务必加群申请，否则无法进行任何行为！
+const botId = 114514; //这里把114514替换为你自己的botId，请务必加群申请，否则无法进行任何行为！
 if(!seal.ext.find('漂流瓶')){
-    ext = seal.ext.new('漂流瓶','流溪','0.0.6');
+    ext = seal.ext.new('漂流瓶','流溪','0.0.7');
     seal.ext.register(ext);
 }
 const cmdGetBottle = seal.ext.newCmdItemInfo();
